@@ -64,6 +64,9 @@ def media_tiempo_boxes(carreras:list[Carrera], ciudad:str,\
             if (e.ciudad==ciudad):
                 res.append(e.tiempo_boxes)
 
+    if len(res)==0:
+        return None
+
     return sum(res)/len(res)
 
 
@@ -89,7 +92,6 @@ def ratio_tiempo_boxes_total(carreras:list[Carrera])->list[tuple[str,date, float
         ratio=(i.tiempo_boxes/t_total)
         res.append((i.nombre,i.fecha_carrera,round(ratio, 3)))
     return sorted(res, key=lambda x:x[2])
-
 
 
 def funcion_aux(carrera:Carrera):
